@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PlanillaAppMovil.Views.MainPage"
+             Title="Listado">
+    <ScrollView BackgroundColor="White">
+        <Grid Padding="10" RowSpacing="10" ColumnSpacing="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="100" />
+            </Grid.ColumnDefinitions>
+            <SearchBar Placeholder="Buscar..."
+                   x:Name="FiltroEntry"
+                   Grid.Row="0"
+                   Grid.Column="0"
+                   TextChanged="FiltroEntry_TextChanged"/>
+            <Button Text="Nuevo"
+                x:Name="NuevoButton"
+                Grid.Row="0"
+                Grid.Column="1"
+                Clicked="NuevoButton_Clicked"/>
+
+            <CollectionView x:Name="listaCollection"
+                            ItemsSource="{Binding Lista}"
+                            SelectionMode="Single"
+                            SelectionChanged="listaCollection_SelectionChanged"
+                            Grid.Row="1"
+                            Grid.ColumnSpan="2">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid ColumnSpacing="10" Padding="5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.RowSpan="2"
+                                   Source="dotnet_bot.png"
+                                   Aspect="Fill"
+                                   HeightRequest="60"
+                                   WidthRequest="60"/>
+                            <Label Grid.Column="1"
+                                   Grid.Row="0"
+                                   Text="{Binding nombreCompleto}"
+                                   FontAttributes="Bold"
+                                   TextColor="Black"
+                                   FontSize="20"/>
+                            <Label Grid.Row="1"
+                                   Grid.Column="1"
+                                   Text="{Binding cargo.nombre}"
+                                   TextColor="Black"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </ScrollView>
+</ContentPage>
