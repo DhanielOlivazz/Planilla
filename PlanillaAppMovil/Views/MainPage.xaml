@@ -42,7 +42,7 @@
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
                             <Image Grid.RowSpan="2"
-                                   Source="dotnet_bot.png"
+                                   Source="{Binding UrlFoto}"
                                    Aspect="Fill"
                                    HeightRequest="60"
                                    WidthRequest="60"/>

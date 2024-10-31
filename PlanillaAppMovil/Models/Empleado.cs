@@ -12,5 +12,6 @@ namespace PlanillaAppMovil.Models
         public DateTime FechaInicio { get; set; }
         public double salario { get; set; }
         public Cargo cargo { get; set; }
+        public string UrlFoto { get; set; }
     }
 }
